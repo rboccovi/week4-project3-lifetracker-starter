@@ -54,8 +54,8 @@ Implement any of the following features to improve the application:
 
 #### The `App` Component
 
-- [ ] Build the `App` component to:
-  - [ ] Be wrapped by an element with the class name of `app`
+- [ X] Build the `App` component to:
+  - [X ] Be wrapped by an element with the class name of `app`
   - [ ] Contain the routes for the app
   - [ ] Render the `Navbar` component on every route
   - [ ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
