@@ -3,6 +3,9 @@ const express = require ("express")
 const cors= require("cors")
 const morgan = require("morgan")
 
+
+const {NotFoundError} = require(".utils/errors")
+
 //initialize application with express
 const app = express()
 
@@ -24,6 +27,20 @@ app.get('/words', (req, res) => {
   });
   
 
+  //middleware
+
+  app.use((req,res,next) => {
+    return next (new NotFoundError)
+
+  })
+
+  app.use((eerr, req, res, next) => {
+    const status= err.status || 500
+    const message = err.message
+
+    return res.status(status).json ({ error: {message, status}})
+
+  })
 
 const PORT = process.env.PORT || 3001
 
