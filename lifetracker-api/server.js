@@ -16,6 +16,15 @@ app.use(morgan("tiny"))
 
 
 
+
+//**TESTING ON POSTMAN***
+app.get('/words', (req, res) => {
+    const words = 'Hello, world!'; // The words I want to display
+    res.send(words); // I am Sending the words as the response
+  });
+  
+
+
 const PORT = process.env.PORT || 3001
 
 //intialize server
