@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavLinks.css'
 
-function NavLinks() {
+
+const NavLinks = () => {
   const logoutUser = () => {
     // Remove the lifetracker_token from local storage
     localStorage.removeItem('lifetracker_token');
@@ -10,25 +11,30 @@ function NavLinks() {
     window.location.reload();
   };
 
-  const isLoggedIn = true; // Replace with your logic to determine if a user is logged in or not
+  const isLoggedIn = false // Replace with your logic to determine if a user is logged in or not
 
   return (
     <div className="nav-links">
       <Link to="/activity">Activity</Link>
       <Link to="/nutrition">Nutrition</Link>
-      <Link to="/resources">Resources</Link>
+      <Link to="/Exercise">Exercise</Link>
+      <Link to="/Sleep"> Sleep</Link>
       {isLoggedIn ? (
-        <button className="logout-button" onClick={logoutUser}>
+        <button className="signout-button" onClick={logoutUser}>
           Logout
         </button>
       ) : (
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Sign Up</Link>
+          <Link to="/login">
+            <button className="signin-button">Sign In</button>
+          </Link>
+          <Link to="/register">
+            <button className="register-button">Register</button>
+          </Link>
         </>
       )}
     </div>
   );
-}
+};
 
 export default NavLinks;
