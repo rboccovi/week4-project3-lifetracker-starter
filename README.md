@@ -117,21 +117,21 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `Navbar` Component
 
-- [ ] Build the **`Navbar`** component to:
-  - [ ] Render JSX that is wrapped by a `nav` element with the class name of `navbar`
-  - [ ] Render the app's logo as an element with the class name of `logo`.
-    - [ ] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
-    - [ ] Inside that `Link` component should be the application's logo (text or image).
-  - [ ] Render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route.
+- [ x] Build the **`Navbar`** component to:
+  - [x ] Render JSX that is wrapped by a `nav` element with the class name of `navbar`
+  - [ x] Render the app's logo as an element with the class name of `logo`.
+    - [ x] Inside that element should be a `Link` component from `react-router-dom` that navigates the user to the `/` route when clicked.
+    - [ x] Inside that `Link` component should be the application's logo (text or image).
+  - [x ] Render the `NavLinks.jsx` component with links to each of the resources and the `/activity` route.
 
 #### Implement the `NavLinks` Component
 
-- [ ] Build the **`NavLinks`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `nav-links`
-  - [ ] Render a `Link` element from `react-router-dom` for:
-    - [ ] The `/activity` route with a label of `Activity`.
+- [ x] Build the **`NavLinks`** component to:
+  - [ x] Render JSX that is wrapped by an element with the class name of `nav-links`
+  - [ x] Render a `Link` element from `react-router-dom` for:
+    - [ x] The `/activity` route with a label of `Activity`.
     - [ ] The `/nutrition` route with a label of `Nutrition`.
-    - [ ] A route for any other resource page
+    - [x ] A route for any other resource page
   - [ ] If a valid user is logged in, it should render an element with the class name of `logout-button` that calls the `logoutUser` function when clicked.
     - [ ] The `logoutUser` function should remove the `lifetracker_token` from local storage and refresh the page so that all user data is reset.
   - [ ] If no valid user is logged in:
@@ -357,24 +357,24 @@ Update the `App` component to manage authentication state:
 
 Here are the pieces of functionality that should be built out for the backend:
 
-- [ ] **Project setup**
-  - [ ] First things first, bootstrap the Express application with some essential files and starter code
-  - [ ] Create a `.gitignore` file, an `app.js` file, an `app.test.js` file, and a `server.js` file
-  - [ ] Make sure `node_modules` are added to the `.gitignore` file.
-  - [ ] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
-  - [ ] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
-  - [ ] Commit all work to `git`
-  - [ ] Add a `.env` file to the root of the repo and include the following environment variables
-    - [ ] `PORT` (default to `3001`)
+- [x ] **Project setup**
+  - [ x] First things first, bootstrap the Express application with some essential files and starter code
+  - [ x] Create a `.gitignore` file, an `app.js` file, an `app.test.js` file, and a `server.js` file
+  - [x ] Make sure `node_modules` are added to the `.gitignore` file.
+  - [ x] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
+  - [x ] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
+  - [ x] Commit all work to `git`
+  - [x ] Add a `.env` file to the root of the repo and include the following environment variables
+    - [ x] `PORT` (default to `3001`)
     - [ ] `SECRET_KEY` (set to a long random string)
-    - [ ] `BCRYPT_WORK_FACTOR` (set to `13`)
+    - [x ] `BCRYPT_WORK_FACTOR` (set to `13`)
     - [ ] `DATABASE_USER`
     - [ ] `DATABASE_PASS`
     - [ ] `DATABASE_HOST`
     - [ ] `DATABASE_PORT`
     - [ ] `DATABASE_NAME` - (set to `lifetracker`)
     - [ ] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
-  - [ ] Add a `config.test.js` file
+  - [ x] Add a `config.test.js` file
     - [ ] Write tests that check to make sure that:
       - [ ] `process.env.NODE_ENV` is set to `test` when the test suite is run
       - [ ] There is an `IS_TESTING` variable that is exported, which should only be true if `process.env.NODE_ENV` is set to `test`
