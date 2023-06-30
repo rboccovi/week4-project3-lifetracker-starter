@@ -56,14 +56,14 @@ Implement any of the following features to improve the application:
 
 - [ X] Build the `App` component to:
   - [X ] Be wrapped by an element with the class name of `app`
-  - [ ] Contain the routes for the app
-  - [ ] Render the `Navbar` component on every route
-  - [ ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
-    - [ ] `/` - Render the `Landing` component
-    - [ ] `/login` - Render the `LoginPage` component
-    - [ ] `/register` - Render the `RegistrationPage` component
+  - [x ] Contain the routes for the app
+  - [ x] Render the `Navbar` component on every route
+  - [x ] Render a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [x ] `/` - Render the `Landing` component
+    - [x ] `/login` - Render the `LoginPage` component
+    - [ x] `/register` - Render the `RegistrationPage` component
     - [ ] `/activity` - Render the `ActivityPage` component **only** if the user is logged in, otherwise it renders the `AccessForbidden` component
-    - [ ] `/nutrition/*` - Render the `NutritionPage`component **only** if the user is logged in, otherwise it renders the`AccessForbidden` component
+    - [x ] `/nutrition/*` - Render the `NutritionPage`component **only** if the user is logged in, otherwise it renders the`AccessForbidden` component
     - [ ] `*` - Anything else renders the `NotFound` component
 
 #### Handling API Requests
@@ -140,30 +140,30 @@ Update the `App` component to manage authentication state:
 
 #### Implement the `LoginForm` Component
 
-- [ ] Build the **`LoginForm`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `login-form`
+- [ x] Build the **`LoginForm`** component to:
+  - [x ] Render JSX that is wrapped by an element withx the class name of `login-form`
   - [ ] Render an input element for the following fields:
-    - [ ] `email`
-    - [ ] `password`
-  - [ ] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
-    - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
-    - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
-    - [ ] `value` - the current value of the `input` element
-    - [ ] `onChange` - the `onChange` handler function
-  - [ ] Validate the `email` field. If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the class name of `error` indicating that the entry is not a valid email.
+    - [ x] `email`
+    - [ x] `password`
+  - [ x] Each `input` element in the form should have a class name of `form-input` and should have the following props set:
+    - [ x] `name` - the `name` of the `input` field being rendered (`email`, `password`)
+    - [ x] `type` - the type of the `input` element (`text`, `email`, `number`, etc.)
+    - [ x] `value` - the current value of the `input` element
+    - [ x] `onChange` - the `onChange` handler function
+  - [ x] Validate the `email` field. If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the class name of `error` indicating that the entry is not a valid email.
   - [ ] Gracefully handle errors:
     - [ ] If the user has attempted to login and gotten a `401` error, then an error message should be displayed in an element with the class name of `error` indicating that the `email` and `password` combination is incorrect.
     - [ ] If the user has attempted to login and gotten a `400` or `422` error, then an error message should be displayed in an element with the class name of `error` indicating what went wrong.
   - [ ] There should be a `button` element with the class name of `submit-login`:
-    - [ ] It should contain the text `"Login"`
-    - [ ] When clicked, it should call the `loginUser` function
+    - [x ] It should contain the text `"Login"`
+    - [ x] When clicked, it should call the `loginUser` function
 
 #### Implement the `LoginPage` Component
 
-- [ ] Build the **`LoginPage`** component to:
-  - [ ] Render JSX that is wrapped by an element with the class name of `login-page`
-  - [ ] Using either a custom hook, context, or manually set state, check to see if a user is already logged in
-    - [ ] If the user is already logged in, redirect them to the `/activity` page.
+- [ x] Build the **`LoginPage`** component to:
+  - [x ] Render JSX that is wrapped by an element with the class name of `login-page`
+  - [ x] Using either a custom hook, context, or manually set state, check to see if a user is already logged in
+    - [x] If the user is already logged in, redirect them to the `/activity` page.
     - [ ] If no user is authenticated, render the `LoginForm` component and pass it any props it needs.
 
 #### Implement the `RegistrationForm` Component
@@ -398,30 +398,30 @@ Here are the pieces of functionality that should be built out for the backend:
   - Time bring in a PostgreSQL database client as the application's persistence layer
   - Make sure the PostgreSQL server is running
   - Create two files at the root of the project:
-    - [ ] `lifetracker-schema.sql`
-      - [ ] This script should:
-        - [ ] Create a `users` table with the following columns:
-          - [ ] `id`
-          - [ ] `username`
-          - [ ] `password`
-          - [ ] `first_name`
-          - [ ] `last_name`
-          - [ ] `email`
-          - [ ] `created_at`
-          - [ ] `updated_at`
-        - [ ] Create a `nutrition` table with the following columns:
-          - [ ] `id`
-          - [ ] `name`
-          - [ ] `category`
-          - [ ] `calories`
-          - [ ] `image_url`
-          - [ ] `user_id`
-          - [ ] `created_at`
+    - [ x] `lifetracker-schema.sql`
+      - [x ] This script should:
+        - [x ] Create a `users` table with the following columns:
+          - [x ] `id`
+          - [ x] `username`
+          - [x ] `password`
+          - [x ] `first_name`
+          - [ x] `last_name`
+          - [x ] `email`
+          - [x ] `created_at`
+          - [x ] `updated_at`
+        - [ x] Create a `nutrition` table with the following columns:
+          - [x ] `id`
+          - [x ] `name`
+          - [x ] `category`
+          - [x ] `calories`
+          - [ x] `image_url`
+          - [x ] `user_id`
+          - [x ] `created_at`
         - [ ] **Any other tables** that the application might depend on
     - [ ] `lifetracker.sql`
       - [ ] This script should:
-        - [ ] 1. Let the user know that they're about to delete the `lifetracker` database and prompt them to confirm that is what they want.
-        - [ ] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
+        - [ x] 1. Let the user know that they're about to delete the `lifetracker` database and prompt them to confirm that is what they want.
+        - [x ] 2. Drop the `lifetracker` database and then create a new `lifetracker` database, before connecting to the `lifetracker` database.
         - [ ] 3. It should then run the `lifetracker-schema.sql` file.
         - [ ] Follow the exact same steps for `1`, `2`, and `3`, but with the `lifetracker_test` database.
   - [ ] Setup the database by running `psql -f lifetracker.sql`

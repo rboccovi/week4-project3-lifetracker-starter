@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import { Redirect } from 'react-router-dom';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 
-const RegistrationPage = () => {
-  const isLoggedIn = false; // Replace with your logic to determine if a user is logged in or not
+const RegistrationPage = ({handleRegistration}) => {
+  
 
-  if (isLoggedIn) {
-    // Redirect the user to the activity page if already logged in
-    return <Redirect to="/activity" />;
-  }
 
   return (
     <div className="registration-page">
-      <RegistrationForm />
+      <RegistrationForm handleRegistration={handleRegistration} />
     </div>
   );
 };

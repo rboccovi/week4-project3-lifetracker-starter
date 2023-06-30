@@ -4,3 +4,6 @@
 .ExercisePage .button button {
   flex: 1;
 }
+p{
+  color: black;
+}

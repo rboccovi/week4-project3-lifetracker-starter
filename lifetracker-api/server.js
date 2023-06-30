@@ -1,60 +1,23 @@
+const express = require("express"); //importing express
+const app = express(); //calling using express in the app as a function
+const cors = require("cors"); //imorting cors
+const morgan = require("morgan"); // Import the Morgan middleware for logging
 
-const express = require ("express")
-const cors= require("cors")
-const morgan = require("morgan")
+//importing the auth routes
+const authRoutes = require("./routes/authRoutes");
 
+// Middleware
+app.use(cors()); // Enable CORS middleware to handle cross-origin requests
+app.use(morgan("dev")); // Use Morgan middleware with 'dev' format for request logging
+app.use(express.json()); // Parse incoming requests with JSON payloads
 
-const {NotFoundError} = require(".utils/errors")
+//enabling the /api/auth route - using the imported auth routes
+app.use("/api/auth", authRoutes);
 
-//initialize application with express
-const app = express()
-
-//enables cross-orgin resource sharing f
-app.use(cors())
-//Parse incoming request bodies with JSON payloads
-app.use(express.json())
-
-//log request info
-app.use(morgan("tiny"))
-
-
-
-
-//**TESTING ON POSTMAN***
-app.get('/words', (req, res) => {
-    const words = 'Hello, world!'; // The words I want to display
-    res.send(words); // I am Sending the words as the response
-  });
-  
-
-  //middleware
-
-  app.use((req,res,next) => {
-    return next (new NotFoundError)
-
-  })
-
-  app.use((eerr, req, res, next) => {
-    const status= err.status || 500
-    const message = err.message
-
-    return res.status(status).json ({ error: {message, status}})
-
-  })
-
-const PORT = process.env.PORT || 3001
-
-//intialize server
+// Start the server
+const PORT = 3001;
+//enabling the localhost at PORT - 3001
 app.listen(PORT, () => {
-    console.log(`🚀 Server running http://localhost:${PORT}`)
-  })
-
-
-module.exports = app
-
-
-
-
-
-
-
+  //console logging the iniation of the server
+  console.log(`Server running on port ${PORT}`);
+});

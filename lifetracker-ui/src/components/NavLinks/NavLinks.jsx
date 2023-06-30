@@ -17,8 +17,8 @@ const NavLinks = () => {
     <div className="nav-links">
       <Link to="/activity">Activity</Link>
       <Link to="/nutrition">Nutrition</Link>
-      <Link to="/Exercise">Exercise</Link>
-      <Link to="/Sleep"> Sleep</Link>
+      <Link to="/exercise">Exercise</Link>
+      <Link to="/sleep"> Sleep</Link>
       {isLoggedIn ? (
         <button className="signout-button" onClick={logoutUser}>
           Logout

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './LoginForm.css'
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = ({handleLogin}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const navigate= useNavigate(); 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -14,40 +16,22 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = () => {
-    // You can perform the login request here
-    // and handle success/error cases accordingly
-    if (email === 'example@example.com' && password === 'password') {
-      // Simulating successful login for the example
-      console.log('Login successful!');
-    } else {
-      setErrorMessage('Invalid email or password');
-    }
-  };
-
-  const handleFormSubmit = (e) => {
+  const handleSubmit = async  (e) => {
     e.preventDefault();
-    handleLogin();
-  };
-
-  const validateEmail = () => {
-    if (email && !email.includes('@')) {
-      setErrorMessage('Invalid email');
-    } else {
-      setErrorMessage('');
-    }
-  };
+    handleLogin (email,password)
+    navigate("/activity");
+  }
+  
 
   return (
     <div className="login-form">
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           className="form-input"
           type="email"
           name="email"
           value={email}
           onChange={handleEmailChange}
-          onBlur={validateEmail}
           placeholder="Email"
           required
         />
