@@ -4,10 +4,11 @@ import './LandingPage.css';
 const LandingPage = () => {
   return (
     <div className="hero-section">
-        <img className="Hero-image" src="https://i.pinimg.com/474x/c9/83/c2/c983c2102c754209012ced504c53c569.jpg" alt="Hero Image" />
+       <div className="Heroimage"></div>
+        {/* <img src="https://i.pinimg.com/474x/c9/83/c2/c983c2102c754209012ced504c53c569.jpg" alt="Hero Image" /> */}
       <h1>Welcome to My LifeTracker </h1>
       <p>Your Health Matters.
-        Let Us Make it Easy.
+        Lets Make it Easy.
       </p>
 
       <div className="tiles">

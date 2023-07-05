@@ -7,7 +7,7 @@ function ExercisePage() {
     return (
 
 
-      <div>
+      <div className="Exercise-Page">
         <p> Exercise ELEMENT WILL SHOW UP HERE
         </p>
       </div>

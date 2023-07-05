@@ -18,6 +18,9 @@
 .register-button:hover,
 .signout-button:hover {
   background-color: #b5389a;
+  transform: scale(1.1)
+
+
 }
 
 .nav-links {

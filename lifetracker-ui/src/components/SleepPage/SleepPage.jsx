@@ -6,8 +6,7 @@ import './SleepPage.css'
 function SleepPage() {
     return (
 
-
-      <div>
+      <div className="SleepPage">
         <p> SLEEP ELEMENT WILL SHOW UP HERE
         </p>
       </div>

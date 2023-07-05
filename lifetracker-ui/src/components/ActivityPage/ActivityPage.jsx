@@ -4,10 +4,11 @@ import './ActivityPage.css'
 
 
 function ActivityPage() {
+
     return (
 
 
-      <div>
+      <div className="Activity-Page">
         <p> IS IT WORKING??
 
 

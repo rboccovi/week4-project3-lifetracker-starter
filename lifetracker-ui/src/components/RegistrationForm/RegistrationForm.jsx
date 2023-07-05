@@ -14,7 +14,7 @@ const [ lastname, setLastName] = useState ("")
 
 
   const handleSubmit =  (e) => {
-    e.preventDefault(); handleRegistration( name, email, password);}
+    e.preventDefault(); handleRegistration( name, email, password,username,lastname);}
     
   
 

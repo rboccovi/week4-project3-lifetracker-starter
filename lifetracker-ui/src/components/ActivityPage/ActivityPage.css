@@ -1,5 +1,8 @@
-p {
-
-
+.Activity-Page p {
+    display: flex;
+    margin-top: 500px;
     color: black;
+    text-align: center;
+    size: 34px;
+
 }

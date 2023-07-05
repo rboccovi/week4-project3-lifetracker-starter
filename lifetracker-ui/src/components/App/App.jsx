@@ -18,14 +18,14 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(false);
 
 
-  const handleRegistration = async (name, email, password) => {
+  const handleRegistration = async (name, email, password, username, lastname) => {
     try {
       const response = await fetch("http://localhost:3001/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password, username, lastname }),
       });
       //wait for the response
       const data = await response.json();
@@ -108,6 +108,7 @@ function App() {
             <div>
               <Routes>
                 <Route path="/activity" element={<ActivityPage isProcessing={isProcessing} />} />
+                <Route exact path="/" element={<LandingPage />} />
               </Routes>
             </div>
           ) : (

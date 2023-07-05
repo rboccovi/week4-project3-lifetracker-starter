@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './NavLinks.css'
 
 
-const NavLinks = () => {
+const NavLinks = ({loggedIn}) => {
   const logoutUser = () => {
     // Remove the lifetracker_token from local storage
     localStorage.removeItem('lifetracker_token');
@@ -11,7 +11,7 @@ const NavLinks = () => {
     window.location.reload();
   };
 
-  const isLoggedIn = false // Replace with your logic to determine if a user is logged in or not
+  // const isLoggedIn = false // Replace with your logic to determine if a user is logged in or not
 
   return (
     <div className="nav-links">
@@ -19,7 +19,7 @@ const NavLinks = () => {
       <Link to="/nutrition">Nutrition</Link>
       <Link to="/exercise">Exercise</Link>
       <Link to="/sleep"> Sleep</Link>
-      {isLoggedIn ? (
+      {loggedIn ? (
         <button className="signout-button" onClick={logoutUser}>
           Logout
         </button>

@@ -17,3 +17,13 @@
 .NutritionPage .button button {
   flex: 1;
 }
+
+.NutritionPage { display: flex;
+  margin-top: 500px;
+  color: black;
+  text-align: center;
+  size: 34px;
+
+
+
+}

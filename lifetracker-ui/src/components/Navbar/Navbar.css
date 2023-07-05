@@ -32,6 +32,7 @@
 .nav-links {
   display: flex;
   align-items: center;
+  transform: scale(1.1)
 }
 
 .nav-link {
@@ -40,6 +41,7 @@
   color: #000000;
   text-decoration: none;
   transition: color 0.3s ease;
+  transform: scale(1.1)
 }
 
 .nav-link:hover {

@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import NavLinks from '../NavLinks/NavLinks';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar( {loggedIn}) {
   return (
     <nav className="navbar">
       <div className="logo">
         <Link to="/">Your Logo</Link>
       </div>
-      <NavLinks />
+      <NavLinks loggedIn={loggedIn} />
     </nav>
   );
 }
