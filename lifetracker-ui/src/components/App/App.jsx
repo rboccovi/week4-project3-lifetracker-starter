@@ -10,12 +10,41 @@ import LoginPage from '../LoginPage/LoginPage';
 import SleepPage from '../SleepPage/SleepPage';
 import ExercisePage from '../ExercisePage/ExercisePage';
 import RegistrationPage from '../RegistrationPage/RegistrationPage';
+import jwtDecode from "jwt-decode";
+import { useEffect } from 'react';
 
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [username, setUsername] = useState();
+
+
+
+
+
+  useEffect(() => {
+    const checkLoggedIn = () => {
+      //check if the user is logged in when the user first accesses the webapp
+      const token = localStorage.getItem("token");
+      if (token) {
+        //decode the stored token
+        const decodedToken = jwtDecode(token);
+        setUsername(decodedToken.username);
+
+  
+        if (decodedToken.exp * 1000 > Date.now()) {
+          setLoggedIn(true);
+        } else {
+          //Token has expired, log out the user
+          handleLogout();
+        }
+      }
+    };
+
+    checkLoggedIn();
+  }, []);
 
 
   const handleRegistration = async (name, email, password, username, lastname) => {
@@ -30,6 +59,14 @@ function App() {
       //wait for the response
       const data = await response.json();
       if (response.ok) {
+
+        const { token } = data;
+        localStorage.setItem("token", token);
+
+        const decodedToken = jwtDecode(token); //a way to get username from token
+        setUsername(decodedToken.username);
+
+         
         //Registration successful
         setLoggedIn(true);
         console.log(data.message); //optional - display a success message
@@ -56,7 +93,17 @@ function App() {
       });
       //wait for the response
       const data = await response.json();
+
       if (response.ok) {
+        const { token } = data;
+        localStorage.setItem("token", token);
+       
+
+      
+      
+    
+      
+      
         //Registration successful
         setLoggedIn(true);
         console.log(data.message); //optional - display a success message
@@ -75,9 +122,12 @@ function App() {
 
 
 
-  const logoutUser = () => {
+  const handleLogout = () => {
     // Remove the lifetracker_token from local storage
-    localStorage.removeItem('lifetracker_token');
+    localStorage.removeItem('token');
+
+
+
     // Reset the login state
     setLoggedIn(false);
     // Refresh the page to reset user data
@@ -109,16 +159,20 @@ function App() {
               <Routes>
                 <Route path="/activity" element={<ActivityPage isProcessing={isProcessing} />} />
                 <Route exact path="/" element={<LandingPage />} />
+                <Route path="/sleep" element={<SleepPage />} />
+                <Route path="/exercise" element={<ExercisePage />} />
+                <Route path="/nutrition" element={<NutritionPage />} />
+                
               </Routes>
             </div>
           ) : (
             <Routes>
               <Route exact path="/" element={<LandingPage />} />
-              <Route path="/activity" element={<ActivityPage />} />
-              <Route path="/nutrition" element={<NutritionPage />} />
+              {/* <Route path="/activity" element={<ActivityPage />} />
+              <Route path="/nutrition" element={<NutritionPage />} /> */}
               <Route path="/login" element={<LoginPage handleLogin={handleLogin} />} />
-              <Route path="/sleep" element={<SleepPage />} />
-              <Route path="/exercise" element={<ExercisePage />} />
+              {/* <Route path="/sleep" element={<SleepPage />} />
+              <Route path="/exercise" element={<ExercisePage />} /> */}
               <Route path="/register" element={<RegistrationPage handleRegistration={handleRegistration} />} />
             </Routes>
           )}

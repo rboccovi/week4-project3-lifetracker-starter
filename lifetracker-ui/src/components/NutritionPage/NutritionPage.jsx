@@ -1,20 +1,26 @@
-import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
-import NutritionOverview from '../NutritionOverView/NutritionOverView';
-import NutritionNew from '../NutritionNew/NutritionNew';
-// import NutritionDetail from '../NutritionDetail/NutritionDetail';
-import NotFound from '../NotFound/NotFound'
-import './NutritionPage.css';
 
-const NutritionPage = ({ appState, setAppState }) => {
+import React, { useState } from 'react';
+import NutritionForm from '../NutritionForm/NutritionForm';
+
+const NutritionPage= () => {
+  const [nutritionEntries, setNutritionEntries] = useState([]);
+  const [activityData, setActivityData] = useState(null);
+
+  const addNutritionEntry = (newEntry) => {
+    // Add the new entry to the nutrition entries list
+    setNutritionEntries([...nutritionEntries, newEntry]);
+  };
+
+  const fetchActivityData = () => {
+    // Perform the logic to fetch activity data and update the state
+    // Once you have the updated activity data, call setActivityData with the new data
+  };
+
   return (
-    <div className="nutrition-page">
-      <Routes>
-        <Route path="/nutrition" element={<NutritionOverview appState={appState} setAppState={setAppState} />} />
-        <Route path="/nutrition/create" element={<NutritionNew appState={appState} setAppState={setAppState} />} />
-        <Route path="/nutrition/id/:nutritionId" element={<NutritionDetail appState={appState} setAppState={setAppState} />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+    <div>
+      <h1>Nutrition Tracker</h1>
+      <NutritionForm addNutritionEntry={addNutritionEntry} fetchActivityData={fetchActivityData} />
+      {/* Render other components that use nutritionEntries and activityData */}
     </div>
   );
 };

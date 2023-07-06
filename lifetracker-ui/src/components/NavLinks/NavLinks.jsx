@@ -6,7 +6,7 @@ import './NavLinks.css'
 const NavLinks = ({loggedIn}) => {
   const logoutUser = () => {
     // Remove the lifetracker_token from local storage
-    localStorage.removeItem('lifetracker_token');
+    localStorage.removeItem('token');
     // Refresh the page to reset user data
     window.location.reload();
   };

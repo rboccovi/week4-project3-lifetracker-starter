@@ -1,65 +1,77 @@
-import React from 'react';
-
+import React from 'react'
+import { useState, useEffect } from "react"
+import "./NutritionForm.css"
 const NutritionForm = () => {
-  const [name, setName] = React.useState('');
-  const [calories, setCalories] = React.useState(1);
-  const [imageUrl, setImageUrl] = React.useState('');
-  const [category, setCategory] = React.useState('');
-  const [error, setError] = React.useState('');
-  const [submitting, setSubmitting] = React.useState(false);
+    const [nutrtion, setNutrtion] = useState("");
+    const [category, setCategory] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [calories, setCalories] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!name || !calories || !category) {
-      setError('Please fill in all required fields');
-      return;
-    }
-
-    // Perform submit logic here
-    setSubmitting(true);
-  };
-
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    };
   return (
-    <div className="nutrition-form">
-      {error && <div className="error">{error}</div>}
-      <form onSubmit={handleSubmit}>
+    <div className= "nutrition-form">
+        <form onSubmit = {handleSubmit}>
+        <label>Food:</label>
         <input
-          className="form-input"
+          className="nutrition-form-input"
           type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Name"
+          value={nutrtion}
+          onChange={(e) => setNutrtion(e.target.value)}
+          required
         />
+        <label>Category</label>
         <input
-          className="form-input"
-          type="number"
-          name="calories"
-          value={calories}
-          onChange={(e) => setCalories(parseInt(e.target.value))}
-          placeholder="Calories"
-        />
-        <input
-          className="form-input"
+          className="nutrition-form-input"
           type="text"
-          name="imageUrl"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-          placeholder="Image URL"
-        />
-        <input
-          className="form-input"
-          type="text"
-          name="category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          placeholder="Category"
+          required
         />
-        <button className="submit-nutrition" type="submit">Save</button>
+        <label>Quantity</label>
+        <input
+          className="nutrition-form-input"
+          type="text"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+          required
+        />
+        <label>Calories</label>
+        <input
+          className="nutrition-form-input"
+          type="text"
+          value={calories}
+          onChange={(e) => setCalories(e.target.value)}
+          required
+        />
+        <label>Image URL</label>
+        <input
+          className="nutrition-form-input"
+          type="text"
+          value={imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          required
+        />
+        <button type="submit">Save</button>
       </form>
     </div>
-  );
-};
+  )
+}
+export default NutritionForm
 
-export default NutritionForm;
+
+
+
+
+
+
+
+
+
+
+
+
+
