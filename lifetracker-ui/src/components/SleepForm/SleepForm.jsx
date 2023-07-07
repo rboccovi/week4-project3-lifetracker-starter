@@ -1,59 +1,64 @@
 import React, { useState } from 'react';
-import './SleepForm.css'
+import './SleepForm.css';
 
+const SleepForm = ({ sleeptime, setSleeptime, waketime, setWaketime, handleSleep }) => {
+  const [savedData, setSavedData] = useState(null);
 
-const SleepForm = ({handleRegistration}) => {
-const [ Starttime, setStarttime]= useState("");
-const [ Endtime, setEndtime]= useState("");
-
-
-
-
-
-  const handleSubmit =  async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-  }
-    
-  
+    handleSleep();
+
+    // Save the input data
+    setSavedData({
+      sleeptime,
+      waketime,
+    });
+  };
 
   return (
     <div className="Sleep-form">
       <form onSubmit={handleSubmit}>
         <label> Start Time </label>
         <input
-          type= "datetime-local"
+          type="datetime-local"
           name="date"
-          value={Starttime}
-          onChange={(e) => setStarttime(e.target.value)}
+          value={sleeptime}
+          onChange={(e) => setSleeptime(e.target.value)}
           className="form-input"
-          placeholder="Email"
+          placeholder="Start Time"
+          required
         />
 
-
-       
-
-<label>  End Time </label>
+        <label> End Time </label>
         <input
           type="datetime-local"
           name="date"
-          value={Endtime}
-          onChange={(e) => setEndtime(e.target.value)}
+          value={waketime}
+          onChange={(e) => setWaketime(e.target.value)}
           className="form-input"
-          placeholder="Email"
+          placeholder="End Time"
+          required
         />
 
-
-  
-
-    
-       
-
         <button type="submit" className="submit-Sleep">
-         Save
+          Save
         </button>
+
+        {savedData && (
+          <div>
+            <p>
+              Sleep start: {savedData.sleeptime}
+              <br />
+              Sleep end: {savedData.waketime}
+            </p>
+          </div>
+        )}
       </form>
     </div>
   );
 };
 
 export default SleepForm;
+
+
+

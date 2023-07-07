@@ -4,13 +4,18 @@ import './SleepPage.css'
 
 
 
-function SleepPage() {
+function SleepPage( {setWaketime, setSleeptime,waketime, sleeptime, handleSleep}) {
     return (
 
       <div className="SleepPage">
         <p> SLEEP ELEMENT WILL SHOW UP HERE
         </p>
-        <SleepForm/>
+        <SleepForm   setWaketime={setWaketime}
+                setSleeptime={setSleeptime} sleeptime={sleeptime} waketime={waketime}
+                handleSleep={handleSleep}
+
+                
+                /> 
       </div>
       
     );

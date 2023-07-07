@@ -7,7 +7,6 @@ const NutritionForm = () => {
     const [quantity, setQuantity] = useState("");
     const [calories, setCalories] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-
     
     const handleSubmit = async (e) => {
         e.preventDefault();

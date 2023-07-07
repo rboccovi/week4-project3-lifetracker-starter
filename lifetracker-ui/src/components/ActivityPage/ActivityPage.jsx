@@ -3,7 +3,7 @@ import './ActivityPage.css'
 
 
 
-function ActivityPage() {
+function ActivityPage(sleeptime) {
 
     return (
 
@@ -13,6 +13,10 @@ function ActivityPage() {
 
 
           YES IT IS
+        </p>
+        {/* {sleeptime} */}
+        <p>
+          
         </p>
       </div>
       

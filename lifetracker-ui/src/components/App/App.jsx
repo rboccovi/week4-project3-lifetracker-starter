@@ -15,10 +15,35 @@ import { useEffect } from 'react';
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+   const [loggedIn, setLoggedIn] = useState(false);
   const [loginError, setLoginError] = useState("");
   const [isProcessing, setIsProcessing] = useState(false);
   const [username, setUsername] = useState();
+  const [ sleeptime, setSleeptime]= useState("");
+  const [ waketime, setWaketime]= useState("");
+  const [user_id, setUserId]= useState(0)
+
+
+  
+  const handleSleep = async () => {
+    try {
+      const response = await fetch("http://localhost:3001/api/sleep", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ sleeptime, waketime, user_id}),
+      });
+      const data = await response.json();
+      console.log("sanity check", data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+    setSleeptime("");
+    setWaketime("");
+  };
+
+
 
 
 
@@ -89,13 +114,14 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({  email, password }),
+        body: JSON.stringify({  email, password, user_id }),
       });
       //wait for the response
       const data = await response.json();
 
       if (response.ok) {
         const { token } = data;
+        setUserId(data.user.id);
         localStorage.setItem("token", token);
        
 
@@ -157,9 +183,13 @@ function App() {
           {loggedIn ? (
             <div>
               <Routes>
-                <Route path="/activity" element={<ActivityPage isProcessing={isProcessing} />} />
+                <Route path="/activity" element={<ActivityPage isProcessing={isProcessing} sleeptime={sleeptime} />} />
                 <Route exact path="/" element={<LandingPage />} />
-                <Route path="/sleep" element={<SleepPage />} />
+                <Route path="/sleep" element={<SleepPage  setWaketime={setWaketime}
+                setSleeptime={setSleeptime} sleeptime={sleeptime} waketime={waketime}
+                handleSleep={handleSleep}
+                
+                />} />
                 <Route path="/exercise" element={<ExercisePage />} />
                 <Route path="/nutrition" element={<NutritionPage />} />
                 
