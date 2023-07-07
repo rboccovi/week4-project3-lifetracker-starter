@@ -1,14 +1,30 @@
 const { Pool } = require("pg");
 
-// SQL script as a string to create a table called users
+// SQL script as a string to create tables
 const sqlScript = `
-CREATE TABLE IF NOT EXISTS users(
+CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS nutrition (
+    id SERIAL PRIMARY KEY,
+    imageUrl VARCHAR(255),
+    name VARCHAR(255) NOT NULL,
+    calories INT NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    createdAt DATE NOT NULL
+);
+CREATE TABLE IF NOT EXISTS sleep (
+  id SERIAL PRIMARY KEY,
+  sleeptime  TIMESTAMP NOT NULL,
+  waketime TIMESTAMP NOT NULL
+  
+);
 `;
+
 
 // DB information to connect
 const pool = new Pool({
@@ -30,15 +46,14 @@ pool.connect((err, client, done) => {
   client
     .query(sqlScript)
     .then(() => {
-      console.log("Table created successfully");
+      console.log("Tables created successfully");
       done(); // Release the client back to the pool
     })
     .catch((error) => {
-      console.error("Error creating table", error);
+      console.error("Error creating tables", error);
       done(); // Release the client back to the pool
     });
 });
 
 // Export the pool to be used in a different file
 module.exports = pool;
-

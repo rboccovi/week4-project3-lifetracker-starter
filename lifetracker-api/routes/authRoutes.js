@@ -8,7 +8,7 @@ const pool = require("../db/pool");
 
 //Registration route
 router.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, username,lastname } = req.body;
 
   // encrpyt password
   try {
@@ -20,14 +20,24 @@ router.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const createUserQuery = `
-            INSERT INTO users (name, email, password)
-            VALUES ($1, $2, $3)
+            INSERT INTO users (name, email, password, username, lastname)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING *
         `;
 
     //$1 will get name, $2 will get email, $3 will get hashedPassword
-    const values = [name, email, hashedPassword];
+    const values = [name, email, hashedPassword, username, lastname];
     const result = await pool.query(createUserQuery, values);
+
+
+       //Generate and sign JWT token, store secret-key in .env
+       const token = jwt.sign(
+        { userId: result.rows[0].id, userName: result.rows[0].name },
+        "secret-key-unique",
+        {
+          expiresIn: "1h",
+        }
+      );
 
     //if all this works and no error - Status code 201 - successful entry
     res.status(201).json({
@@ -90,3 +100,4 @@ router.post("/login", async (req, res) => {
 });
 
 module.exports = router;
+

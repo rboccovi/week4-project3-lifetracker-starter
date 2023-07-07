@@ -5,6 +5,7 @@ const morgan = require("morgan"); // Import the Morgan middleware for logging
 
 //importing the auth routes
 const authRoutes = require("./routes/authRoutes");
+const  SleepRoutes = require("./routes/SleepRoutes")
 
 // Middleware
 app.use(cors()); // Enable CORS middleware to handle cross-origin requests
@@ -13,6 +14,9 @@ app.use(express.json()); // Parse incoming requests with JSON payloads
 
 //enabling the /api/auth route - using the imported auth routes
 app.use("/api/auth", authRoutes);
+
+//enabling the /api
+app.use("/api/sleep", SleepRoutes);
 
 // Start the server
 const PORT = 3001;
