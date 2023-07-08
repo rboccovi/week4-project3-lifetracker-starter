@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SleepForm.css';
 
-const SleepForm = ({ sleeptime, setSleeptime, waketime, setWaketime, handleSleep }) => {
+const SleepForm = ({ sleeptime, setSleeptime, waketime, setWaketime, handleSleep, sleepData }) => {
   const [savedData, setSavedData] = useState(null);
 
   const handleSubmit = (e) => {
@@ -17,48 +17,50 @@ const SleepForm = ({ sleeptime, setSleeptime, waketime, setWaketime, handleSleep
 
   return (
     <div className="Sleep-form">
-      <form onSubmit={handleSubmit}>
-        <label> Start Time </label>
-        <input
-          type="datetime-local"
-          name="date"
-          value={sleeptime}
-          onChange={(e) => setSleeptime(e.target.value)}
-          className="form-input"
-          placeholder="Start Time"
-          required
-        />
+      <div className="form-section">
+        <form onSubmit={handleSubmit}>
+          <label> Start Time </label>
+          <input
+            type="datetime-local"
+            name="date"
+            value={sleeptime}
+            onChange={(e) => setSleeptime(e.target.value)}
+            className="form-input"
+            placeholder="Start Time"
+            required
+          />
 
-        <label> End Time </label>
-        <input
-          type="datetime-local"
-          name="date"
-          value={waketime}
-          onChange={(e) => setWaketime(e.target.value)}
-          className="form-input"
-          placeholder="End Time"
-          required
-        />
+          <label> End Time </label>
+          <input
+            type="datetime-local"
+            name="date"
+            value={waketime}
+            onChange={(e) => setWaketime(e.target.value)}
+            className="form-input"
+            placeholder="End Time"
+            required
+          />
 
-        <button type="submit" className="submit-Sleep">
-          Save
-        </button>
+          <button type="submit" className="submit-Sleep">
+            Save
+          </button>
+        </form>
+      </div>
 
-        {savedData && (
-          <div>
-            <p>
-              Sleep start: {savedData.sleeptime}
-              <br />
-              Sleep end: {savedData.waketime}
-            </p>
-          </div>
-        )}
-      </form>
+      <div className="sleepTime-section">
+        <ul>
+          {sleepData.map((item) => (
+            <li key={item.id}>
+              <div className="sleepCard">
+                <p>Sleep Time: {item.sleeptime}</p>
+                <p>Wake Time: {item.waketime}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default SleepForm;
-
-
-

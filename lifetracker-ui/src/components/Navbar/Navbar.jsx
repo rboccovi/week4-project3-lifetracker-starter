@@ -7,7 +7,13 @@ function Navbar( {loggedIn}) {
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">Your Logo</Link>
+        <Link to="/"> 
+        <img
+            src="https://lifetracker.up.railway.app/assets/codepath-f1b3e41a.svg"
+            alt="Logo"
+          />
+        
+        </Link>
       </div>
       <NavLinks loggedIn={loggedIn} />
     </nav>

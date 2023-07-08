@@ -1,0 +1,41 @@
+.Sleep-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom right, #3498db, #c0392b, #9b59b6);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Add this line to center the form vertically */
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+    margin: 0 auto; /* Add this line to center the form horizontally */
+  }
+  
+  .sleepTime-section {
+    margin-top: 20px;
+  }
+  
+  .sleepCard {
+    padding: 10px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    border-radius: 4px;
+  }
+  
+  .submit-Sleep {
+    background-color: #000000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .submit-Sleep:hover {
+    background-color: #903269;
+  }
+  

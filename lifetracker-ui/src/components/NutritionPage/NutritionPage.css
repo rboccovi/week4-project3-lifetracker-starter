@@ -1,5 +1,5 @@
 .NutritionPage {
-  background: #f7fafc;
+  background: linear-gradient(to bottom right, #3498db, #c0392b, #9b59b6);
 }
 .NutritionPage .nutrition-feed {
   display: flex;

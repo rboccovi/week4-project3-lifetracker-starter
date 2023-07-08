@@ -1,15 +1,57 @@
+.SleepPage {
+  text-align: center;
+}
+
+.sleep-hero {
+  background-image: url('path/to/your-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to bottom right, #3498db, #c0392b, #9b59b6);
+}
+
+.sleep-hero-title {
+  font-size: 40px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.sleep-hero-subtitle {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.sleep-hero-button {
+  background-color: #4c8f50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.sleep-hero-button:hover {
+  background-color: #438c49;
+}
+
 .SleepPage .button {
   display: flex;
 }
+
 .SleepPage .button button {
   flex: 1;
-  
 }
 
-.SleepPage p {
+.SleepPage h2 {
   color: black;
   display: flex;
-    margin-top: 500px;
-    color: black;
+  margin-top: 500px;
+  color: black;
 }
-

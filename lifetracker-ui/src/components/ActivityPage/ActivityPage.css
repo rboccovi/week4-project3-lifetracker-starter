@@ -1,8 +1,52 @@
-.Activity-Page p {
-    display: flex;
-    margin-top: 500px;
-    color: black;
+.Activity-Page {
     text-align: center;
-    size: 34px;
+    margin-top: 50px; /* Adjust the value as needed */
+  
 
-}
+    
+  }
+  
+  .Activity-Page button {
+    background-color: #a42e77;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .Activity-Page button:hover {
+    background-color:  #a42e77;
+  }
+  
+  .total-excercise,
+  .hour-sleep,
+  .avg-daily {
+    margin-top: 20px;
+  }
+  
+  .Activity-Page h2 {
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 30px;
+  }
+  
+
+  .Activity-card {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #f5fff5;
+    color: #ffffff;
+    border-radius: 4px;
+  }
+  
+  .Activity-card p {
+    margin: 0;
+  }
+  
+
+  .activity-hero-title  {
+    margin-top: 300px;
+
+  }
+  
