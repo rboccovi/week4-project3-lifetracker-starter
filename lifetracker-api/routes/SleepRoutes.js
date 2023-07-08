@@ -9,7 +9,7 @@ const pool = require("../db/pool");
 router.get("/", async (req, res) => {
   
     try {
-      const query = "SELECT * FROM sleep";
+      const query = "SELECT * FROM  users, sleep WHERE sleep.user_id =users.id";
       const result = await pool.query(query);
       res.json(result.rows);
       console.log (result.rows)
