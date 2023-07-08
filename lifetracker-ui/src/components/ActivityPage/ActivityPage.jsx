@@ -22,21 +22,21 @@ function ActivityPage() {
       <div className="total-excercise">
         <h2>Total Exercise Minutes</h2>
         <div className="Activity-card">
-          <p>Exercise Time: 60 minutes</p>
+          <p>Exercise Time: 0 minutes</p>
         </div>
       </div>
 
       <div className="hour-sleep">
         <h2>Average Hours of Sleep</h2>
         <div className="Activity-card">
-          <p>Hour of Sleep Time: 7 hours</p>
+          <p>Hour of Sleep Time: 10 hours</p>
         </div>
       </div>
 
       <div className="avg-daily">
         <h2>Average Daily Calories</h2>
         <div className="Activity-card">
-          <p>Daily Calories: 2000 calories</p>
+          <p>Daily Calories: 0 calories</p>
         </div>
       </div>
 
