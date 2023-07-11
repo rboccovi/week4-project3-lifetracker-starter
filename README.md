@@ -4,6 +4,12 @@
 
 VIDEO LINK: <div style="position: relative; padding-bottom: 57.50798722044729%; height: 0;"><iframe src="https://www.loom.com/embed/c8b5e62422ed4f979f3baf0173dc079f?sid=1558f606-f39a-4f12-8f91-cc019f577592" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
+
+RESUBMISSION VIDEO LINK: <div style="position: relative; padding-bottom: 55.3125%; height: 0;"><iframe src="https://www.loom.com/embed/a85141f9e937420aa0eec2e8799578d9?sid=cf458918-92eb-4f49-aba9-648df07c3106" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
+
+POINTS BACK FOR LANDING PAGE, FORM AND STRETCH FEATURE #1
 ## Overview
 
 > Data is the new oil - Clive Humbly
@@ -46,7 +52,7 @@ By the end of this project you will be able to...
 
 Implement any of the following features to improve the application:
 
-- [ ] Users have access to an overview Activity page that shows one summary statistic about each of the three types of activity tracked (i.e., total number of minutes exercised, average calories consumed, max hours of sleep in one night, etc.). These summary statistics should be created using the `AVG`, `SUM`, `COUNT`, `MIN`, `MAX`, functions in SQL queries and served from a dedicated API endpoint. *Note: Summary statistics should not be calculated on the frontend.*
+- [X ] Users have access to an overview Activity page that shows one summary statistic about each of the three types of activity tracked (i.e., total number of minutes exercised, average calories consumed, max hours of sleep in one night, etc.). These summary statistics should be created using the `AVG`, `SUM`, `COUNT`, `MIN`, `MAX`, functions in SQL queries and served from a dedicated API endpoint. *Note: Summary statistics should not be calculated on the frontend.*
 - [ ] Each model (i.e `nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource.
   - You should also create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
 - [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item. Example: filter exercise or nutrition by category, or filter sleep by the week/month it was recorded.
