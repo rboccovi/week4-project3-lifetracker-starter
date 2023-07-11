@@ -1,52 +1,85 @@
-.Activity-Page {
-    text-align: center;
-    margin-top: 50px; /* Adjust the value as needed */
-  
+.activity-feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  background: linear-gradient(to bottom right, #3498db, #c0392b, #9b59b6);
+  padding-top: 100px;
+}
 
-    
-  }
-  
-  .Activity-Page button {
-    background-color: #a42e77;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    margin: 10px;
-    cursor: pointer;
-  }
-  
-  .Activity-Page button:hover {
-    background-color:  #a42e77;
-  }
-  
-  .total-excercise,
-  .hour-sleep,
-  .avg-daily {
-    margin-top: 20px;
-  }
-  
-  .Activity-Page h2 {
-    font-size: 18px;
-    font-weight: bold;
-    padding-bottom: 30px;
-  }
-  
 
-  .Activity-card {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #f5fff5;
-    color: #ffffff;
-    border-radius: 4px;
-  }
-  
-  .Activity-card p {
-    margin: 0;
-  }
-  
+.button {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
 
-  .activity-hero-title  {
-    margin-top: 300px;
+.button button {
+  padding: 16px 32px;
+ 
 
-  }
+  border: none;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   
+}
+
+.button button:hover {
+  background-color: #eea9d7;
+  padding-top: 20px;
+
+}
+
+.activity-line {
+  display: flex;
+  gap: 32px;
+}
+
+.total-exercise,
+.hour-sleep,
+.avg-daily {
+  flex: 1;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.activity-card {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  margin-bottom: 32px;
+  color: #fff;
+}
+
+.activity-card p {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+ 
+  padding: 32px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.card p {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #000000;
+}

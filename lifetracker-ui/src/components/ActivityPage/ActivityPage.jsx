@@ -1,48 +1,78 @@
-import React from "react";
-import { Link } from 'react-router-dom';
-import './ActivityPage.css';
+import "./ActivityPage.css";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+;
 
-function ActivityPage() {
+
+
+const ActivityPage = () => {
+  const [avgSleep, setAvgSleep] = useState([]);
+  const fetchSleepAvg = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/api/activity");
+      setAvgSleep(response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+  useEffect(() => {
+    fetchSleepAvg();
+  }, []);
+  const removeZeros = (value) => {
+    if (value === null || typeof value !== "string") {
+      return ""; // or return a suitable fallback value
+    }
+    return value.replace(/^0+|0+$/g, "");
+  };
   return (
-    <div className="Activity-Page">
-      <div className="activity-hero">
-        <h1 className="activity-hero-title">Stay Active</h1>
-        <p className="activity-hero-subtitle">Track your fitness and nutrition</p>
-        <Link to="/exercise">
-          <button className="activity-hero-button">ADD EXERCISE</button>
-        </Link>
-        <Link to="/sleep">
-          <button className="activity-hero-button">LOG SLEEP</button>
-        </Link>
-        <Link to="/nutrition">
-          <button className="activity-hero-button">RECORD NUTRITION</button>
-        </Link>
+    <div className="activity-feed">
+    
+      <div className="button">
+        <button>
+          <Link to="/activity">Add Exercise</Link>
+        </button>
+        <button>
+          <Link to="/sleep">Log Sleep</Link>
+        </button>
+        <button>
+          <Link to="/nutrition">Record Nutrition</Link>
+        </button>
       </div>
-
-      <div className="total-excercise">
-        <h2>Total Exercise Minutes</h2>
-        <div className="Activity-card">
-          <p>Exercise Time: 0 minutes</p>
+      <div className="activity-line">
+        <div className="total-exercise">
+          <h2>Total Exercise Minutes</h2>
+          <div className="activity-card">
+            <p>Exercise Minutes:</p>
+          </div>
+        </div>
+        <div className="hour-sleep">
+          <h2>Average Hours of Sleep</h2>
+          <div className="activity-card">
+            <p>Hours of Sleep:</p>
+            <ul>
+              {avgSleep.map((time) => (
+                <li key={time.id}>
+                  <div className="cards">
+                    {/* <p>Sleep Time:</p> */}
+                    <p>{removeZeros(time.average_sleep_duration)} Hours</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="avg-daily">
+          <h2>Average Daily Calories</h2>
+          <div className="activity-card">
+            <p>Daily Calories:</p>
+          </div>
         </div>
       </div>
-
-      <div className="hour-sleep">
-        <h2>Average Hours of Sleep</h2>
-        <div className="Activity-card">
-          <p>Hour of Sleep Time: 10 hours</p>
-        </div>
-      </div>
-
-      <div className="avg-daily">
-        <h2>Average Daily Calories</h2>
-        <div className="Activity-card">
-          <p>Daily Calories: 0 calories</p>
-        </div>
-      </div>
-
-      <p></p>
     </div>
   );
-}
+};
+
+
 
 export default ActivityPage;
